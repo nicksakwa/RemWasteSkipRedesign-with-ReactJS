@@ -17,9 +17,6 @@ function App() {
   useEffect(() => {
     const fetchSkips = async () => {
       try {
-        // Updated API endpoint to reflect 2025 if that's the relevant date,
-        // otherwise, use the original if the API data is static for 2019.
-        // Assuming the API is still valid.
         const response = await fetch('https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft');
 
         if (!response.ok) {
@@ -27,10 +24,13 @@ function App() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const data = await response.json();
-        // Assuming the actual array of skip objects is nested under data.data.skips
-        // Adjust this path if the actual API response structure is different
-        setSkips(data.data.skips);
+        const data = await response.json(); // 'data' is now the array of skip objects
+
+        // --- FIX IS HERE ---
+        // The JSON response is an array directly, not nested under data.data.skips
+        setSkips(data); // Set the skips state directly to the received array 'data'
+        // --- END FIX ---
+
       } catch (e) {
         // Catch any network errors or errors thrown above
         setError(e);
