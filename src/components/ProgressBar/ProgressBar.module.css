@@ -1,0 +1,72 @@
+.ProgressBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-color: #555;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Needed for stacking circle and name */
+  z-index: 2; /* Ensure steps are above the line */
+  flex: 1; /* Distribute space evenly */
+  min-width: 80px; /* Ensure steps don't get too squished */
+  text-align: center;
+}
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #555; /* Inactive circle color */
+  border: 2px solid #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.stepName {
+  font-size: 0.85rem;
+  color: #b0b0b0; /* Inactive text color */
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Prevent names from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+.step.active .circle {
+  background-color: #007bff; /* Active circle color */
+  border-color: #007bff;
+}
+.step.active .stepName {
+  color: #f0f0f0; /* Active text color */
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .progressBar {
+    /* Potentially adjust padding or max-width for very small screens if needed */
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+ .step {
+    min-width: unset; /* Allow steps to shrink more */
+  }
+.stepName {
+    font-size: 0.75rem; /* Smaller font on mobile */
+  }
+}
