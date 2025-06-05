@@ -24,11 +24,12 @@ function App() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const data = await response.json(); // 'data' is now the array of skip objects
+        const data = await response.json(); // 'data' will now directly be the array of skip objects
 
-        // --- FIX IS HERE ---
-        // The JSON response is an array directly, not nested under data.data.skips
-        setSkips(data); // Set the skips state directly to the received array 'data'
+        // --- IMPORTANT FIX HERE ---
+        // Based on the JSON response you provided, the API returns an array directly.
+        // So, we set the 'skips' state directly to the 'data' array.
+        setSkips(data);
         // --- END FIX ---
 
       } catch (e) {
@@ -45,7 +46,7 @@ function App() {
   }, []); // The empty dependency array ensures this effect runs only once after the initial render
 
   /**
-   * Handles the selection of a skip.
+   * Handles the selection of a skip. This function is passed down to SkipGrid and then to SkipCard.
    * @param {string | number} id - The ID of the selected skip.
    */
   const handleSelectSkip = (id) => {
@@ -91,7 +92,7 @@ function App() {
           <SkipGrid
             skips={skips}
             selectedSkipId={selectedSkipId}
-            onSelectSkip={handleSelectSkip}
+            onSelectSkip={handleSelectSkip} // Pass the handleSelectSkip function as a prop
           />
         ) : (
           // Message if no skips are found after successful fetch
