@@ -1,24 +1,28 @@
-.ProgressBar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    padding: 0 20px;
-    box-sizing: border-box;
+/* src/components/ProgressBar/ProgressBar.module.css */
+
+.progressBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Needed for positioning the line */
+  width: 100%;
+  max-width: 800px; /* Limit width for better readability on large screens */
+  margin: 0 auto 40px auto; /* Center and add margin below */
+  padding: 0 20px; /* Add some padding on the sides */
+  box-sizing: border-box; /* Include padding in width */
 }
+
+/* The horizontal line connecting the steps */
 .line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background-color: #555;
-    z-index: 1;
-    transform: translateY(-50%);
+  position: absolute;
+  top: calc(50% - 12.5px); /* Adjust to align with center of circle */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #555; /* Color for the inactive line */
+  z-index: 1; /* Ensure line is behind circles */
 }
+
 .step {
   display: flex;
   flex-direction: column;
@@ -29,6 +33,7 @@
   min-width: 80px; /* Ensure steps don't get too squished */
   text-align: center;
 }
+
 .circle {
   width: 25px;
   height: 25px;
@@ -41,6 +46,7 @@
   margin-bottom: 8px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+
 .stepName {
   font-size: 0.85rem;
   color: #b0b0b0; /* Inactive text color */
@@ -48,25 +54,32 @@
   white-space: nowrap; /* Prevent names from wrapping */
   overflow: hidden;
   text-overflow: ellipsis; /* Add ellipsis if text is too long */
+  padding: 0 5px; /* Small padding to prevent text from touching step above/below */
 }
+
+/* Styles for active steps */
 .step.active .circle {
   background-color: #007bff; /* Active circle color */
   border-color: #007bff;
 }
+
 .step.active .stepName {
   color: #f0f0f0; /* Active text color */
   font-weight: bold;
 }
+
+/* Adjustments for smaller screens */
 @media (max-width: 768px) {
   .progressBar {
-    /* Potentially adjust padding or max-width for very small screens if needed */
     padding: 0 10px;
     margin-bottom: 20px;
   }
- .step {
+
+  .step {
     min-width: unset; /* Allow steps to shrink more */
   }
-.stepName {
+
+  .stepName {
     font-size: 0.75rem; /* Smaller font on mobile */
   }
 }
