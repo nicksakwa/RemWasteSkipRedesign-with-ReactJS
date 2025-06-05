@@ -1,0 +1,68 @@
+.appContainer{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color:#f0f0f0;
+    font-family: Arial, sans-serif;
+    padding:20px;
+    box-sizing: border-box;
+}
+.header{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.subtitle{
+    font-size: 1.1rem;
+    color: #b0b0b0;
+}
+.mainContent {
+  flex-grow: 1; /* Allows main content to take up available space */
+  display: flex;
+  justify-content: center; /* Center the grid */
+  align-items: flex-start; /* Align to the top */
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+.backButton,
+.continueButton {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.backButton {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+.backButton:hover {
+  background-color: #444;
+}
+.continueButton {
+  background-color: #007bff; /* A prominent blue */
+  color: white;
+  border: none;
+}
+.continueButton:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+.continueButton:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}.container { /* For loading/error messages */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-size: 1.5rem;
+}
