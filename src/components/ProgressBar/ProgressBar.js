@@ -14,6 +14,8 @@ const ProgressBar = ({ currentStep }) => {
 
   return (
     <nav className={styles.progressBar}>
+      {/* The line connecting the steps */}
+      <div className={styles.line}></div>
       {steps.map((step) => (
         <div
           key={step.id}
@@ -23,7 +25,6 @@ const ProgressBar = ({ currentStep }) => {
           <span className={styles.stepName}>{step.name}</span>
         </div>
       ))}
-      <div className={styles.line}></div>
     </nav>
   );
 };
