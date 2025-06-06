@@ -1,5 +1,7 @@
+/* src/components/SkipCard/SkipCard.module.css */
+
 .card {
-  background-color: #2a2a2a; 
+  background-color: #2a2a2a; /* Darker background for cards */
   border-radius: 12px;
   padding: 25px;
   display: flex;
@@ -7,63 +9,101 @@
   align-items: center;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* Transitions for smooth hover and selection effects */
   transition: transform 0.2s ease-in-out, border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  border: 2px solid transparent; 
-  margin: 15px; 
-  width: 280px; 
-  box-sizing: border-box; 
+  border: 2px solid transparent; /* Default transparent border */
+  margin: 15px; /* Spacing between cards (grid gap also manages this) */
+  width: 280px; /* Fixed width for consistency, responsive via grid */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
+/* Hover effect for non-selected cards */
 .card:hover:not(.selected) {
-  transform: translateY(-5px);
-  border-color: #444; 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
+  transform: translateY(-5px); /* Lift card slightly */
+  border-color: #444; /* Subtle hover border */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Slightly larger shadow on hover */
 }
 
+/* Styling for the selected card */
 .selected {
-  border-color: #007bff; 
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4); 
+  border-color: #007bff; /* Prominent blue border for selected skip */
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4); /* More prominent shadow for selected */
 }
 
+/* Container for the skip image and number badge */
 .imageContainer {
+  position: relative; /* Essential for positioning the skipSizeBadge absolutely within it */
   width: 100%;
-  height: 150px; 
+  height: 150px; /* Fixed height for image container */
   margin-bottom: 20px;
-  overflow: hidden; 
+  overflow: hidden; /* Ensures image doesn't spill if it's too large */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3a3a3a; 
-  border-radius: 8px;
+  background-color: #3a3a3a; /* Placeholder background color */
+  border-radius: 8px; /* Rounded corners for the image area */
 }
 
 .skipImage {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; 
+  object-fit: contain; /* Ensures image fits within the container without cropping */
 }
 
+/* --- NEW STYLES FOR THE SKIP SIZE BADGE (to match original design) --- */
+.skipSizeBadge {
+  position: absolute;
+  top: 10px; /* Distance from the top edge of the image container */
+  right: 10px; /* Distance from the right edge of the image container */
+  background-color: #007bff; /* Blue background for the badge */
+  color: white; /* White text color */
+  padding: 5px 12px; /* Vertical and horizontal padding inside the badge */
+  border-radius: 20px; /* Highly rounded corners to create a pill/badge shape */
+  font-size: 0.9rem; /* Readable font size */
+  font-weight: bold; /* Bold text for prominence */
+  z-index: 2; /* Ensure the badge appears on top of the image */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for a lifted effect */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Very slight text shadow for readability */
+}
+/* ------------------------------------------------------------------- */
+
+
+/* Styling for the skip size heading (e.g., "4 Yard Skip") */
 .skipSize {
   font-size: 1.6rem;
   margin-bottom: 8px;
   color: #f0f0f0;
 }
 
+/* --- REMOVED: Previous .skipSizeText was for highlighting the number in h3.
+     The new badge handles this now.
+.skipSizeText {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ff8c;
+  margin-right: 5px;
+}
+--- */
+
+
+/* Styling for the hire period text */
 .hirePeriod {
   font-size: 0.95rem;
   color: #b0b0b0;
   margin-bottom: 15px;
 }
 
+/* Styling for the price */
 .price {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #00ff8c; 
+  color: #00ff8c; /* A vibrant green for the price */
   margin-bottom: 25px;
 }
 
+/* Styling for the select button */
 .selectButton {
-  background-color: #007bff;
+  background-color: #007bff; /* Primary blue button color */
   color: white;
   border: none;
   border-radius: 8px;
@@ -71,26 +111,30 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
-  width: 100%; 
+  width: 100%; /* Make button full width of the card */
 }
 
+/* Hover effect for non-selected buttons */
 .selectButton:hover:not(.buttonSelected) {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
 }
 
+/* Styling for disabled buttons (e.g., when a skip is already selected) */
 .selectButton:disabled {
-  background-color: #555;
-  cursor: not-allowed;
-  opacity: 0.7;
+  background-color: #555; /* Grey out disabled button */
+  cursor: not-allowed; /* Change cursor for disabled state */
+  opacity: 0.7; /* Reduce opacity */
 }
 
+/* Styling for the button when the skip is selected */
 .buttonSelected {
-  background-color: #28a745; 
-  cursor: default;
-  opacity: 0.9;
+  background-color: #28a745; /* Green for selected button */
+  cursor: default; /* Change cursor to default */
+  opacity: 0.9; /* Slightly reduced opacity */
 }
 
+/* Keep selected button green on hover too */
 .buttonSelected:hover {
-  background-color: #28a745; 
+  background-color: #28a745;
 }

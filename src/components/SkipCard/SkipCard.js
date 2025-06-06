@@ -16,6 +16,7 @@ const SkipCard = ({ skipData, isSelected, onSelectSkip }) => {
           alt={`${size} Yard Skip`}
           className={styles.skipImage}
         />
+        <div className={styles.skipSizeBadge}>{size} Yards</div>
       </div>
       <h3 className={styles.skipSize}>{size} Yard Skip</h3>
       <p className={styles.hirePeriod}>{hire_period_days} day hire period</p>
