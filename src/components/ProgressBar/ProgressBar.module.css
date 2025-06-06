@@ -10,25 +10,24 @@
   box-sizing: border-box; 
 }
 
-/* The horizontal line connecting the steps */
 .line {
   position: absolute;
-  top: calc(50% - 12.5px); /* Adjust to align with center of circle */
+  top: calc(50% - 12.5px); 
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #555; /* Color for the inactive line */
-  z-index: 1; /* Ensure line is behind circles */
+  background-color: #555; 
+  z-index: 1; 
 }
 
 .step {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; /* Needed for stacking circle and name */
-  z-index: 2; /* Ensure steps are above the line */
-  flex: 1; /* Distribute space evenly */
-  min-width: 80px; /* Ensure steps don't get too squished */
+  position: relative; 
+  z-index: 2; 
+  flex: 1; 
+  min-width: 80px; 
   text-align: center;
 }
 
@@ -36,7 +35,7 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: #555; /* Inactive circle color */
+  background-color: #555; 
   border: 2px solid #555;
   display: flex;
   justify-content: center;
@@ -47,26 +46,24 @@
 
 .stepName {
   font-size: 0.85rem;
-  color: #b0b0b0; /* Inactive text color */
+  color: #b0b0b0; 
   transition: color 0.3s ease;
-  white-space: nowrap; /* Prevent names from wrapping */
+  white-space: nowrap; 
   overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis if text is too long */
-  padding: 0 5px; /* Small padding to prevent text from touching step above/below */
+  text-overflow: ellipsis; 
+  padding: 0 5px; 
 }
 
-/* Styles for active steps */
 .step.active .circle {
-  background-color: #007bff; /* Active circle color */
+  background-color: #007bff; 
   border-color: #007bff;
 }
 
 .step.active .stepName {
-  color: #f0f0f0; /* Active text color */
+  color: #f0f0f0; 
   font-weight: bold;
 }
 
-/* Adjustments for smaller screens */
 @media (max-width: 768px) {
   .progressBar {
     padding: 0 10px;

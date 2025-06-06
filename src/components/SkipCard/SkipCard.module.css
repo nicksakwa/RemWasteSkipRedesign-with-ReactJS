@@ -1,6 +1,5 @@
-/* src/components/SkipCard/SkipCard.module.css */
 .card {
-  background-color: #2a2a2a; /* Darker background for cards */
+  background-color: #2a2a2a; 
   border-radius: 12px;
   padding: 25px;
   display: flex;
@@ -9,39 +8,39 @@
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease-in-out, border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  border: 2px solid transparent; /* Default transparent border */
-  margin: 15px; /* Spacing between cards (handled by grid gap mostly, but good for flex fallback) */
-  width: 280px; /* Fixed width for consistency, responsive via grid */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  border: 2px solid transparent; 
+  margin: 15px; 
+  width: 280px; 
+  box-sizing: border-box; 
 }
 
 .card:hover:not(.selected) {
   transform: translateY(-5px);
-  border-color: #444; /* Subtle hover border */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Slightly larger shadow on hover */
+  border-color: #444; 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
 }
 
 .selected {
-  border-color: #007bff; /* Blue border for selected skip */
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4); /* More prominent shadow for selected */
+  border-color: #007bff; 
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4); 
 }
 
 .imageContainer {
   width: 100%;
-  height: 150px; /* Fixed height for image container */
+  height: 150px; 
   margin-bottom: 20px;
-  overflow: hidden; /* Ensure image doesn't spill */
+  overflow: hidden; 
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3a3a3a; /* Placeholder background */
+  background-color: #3a3a3a; 
   border-radius: 8px;
 }
 
 .skipImage {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* Ensures image fits within the container without cropping */
+  object-fit: contain; 
 }
 
 .skipSize {
@@ -59,7 +58,7 @@
 .price {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #00ff8c; /* A vibrant green for price */
+  color: #00ff8c; 
   margin-bottom: 25px;
 }
 
@@ -72,7 +71,7 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
-  width: 100%; /* Make button full width */
+  width: 100%; 
 }
 
 .selectButton:hover:not(.buttonSelected) {
@@ -87,11 +86,11 @@
 }
 
 .buttonSelected {
-  background-color: #28a745; /* Green for selected button */
+  background-color: #28a745; 
   cursor: default;
   opacity: 0.9;
 }
 
 .buttonSelected:hover {
-  background-color: #28a745; /* Keep it green on hover too */
+  background-color: #28a745; 
 }
