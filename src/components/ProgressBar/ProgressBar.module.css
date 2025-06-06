@@ -1,80 +1,122 @@
+/* src/components/ProgressBar/ProgressBar.module.css */
+
 .progressBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; 
+  position: relative; /* For positioning the connector line */
   width: 100%;
-  max-width: 800px; 
-  margin: 0 auto 40px auto; 
-  padding: 0 20px; 
-  box-sizing: border-box; 
+  max-width: 900px; /* Make it a bit wider to accommodate icons/text */
+  margin: 0 auto 50px auto; /* Center and add more margin below */
+  padding: 0 10px; /* Small padding on sides */
+  box-sizing: border-box;
+  background-color: #2a2a2a; /* A subtle background for the entire bar */
+  border-radius: 8px; /* Slightly rounded corners */
+  min-height: 70px; /* Give it some height */
 }
 
-.line {
+/* The horizontal line connecting the steps (now a background line) */
+.connectorLine {
   position: absolute;
-  top: calc(50% - 12.5px); 
+  top: 50%; /* Center vertically */
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #555; 
-  z-index: 1; 
+  background-color: #444; /* Inactive line color */
+  z-index: 0; /* Ensure it's behind the steps */
+  transform: translateY(-50%); /* Adjust for perfect vertical centering */
 }
+
 
 .step {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack icon and text vertically */
   align-items: center;
-  position: relative; 
-  z-index: 2; 
-  flex: 1; 
-  min-width: 80px; 
+  justify-content: center;
+  flex: 1; /* Distribute space evenly */
+  padding: 10px 5px;
+  min-width: 80px; /* Minimum width for each step */
   text-align: center;
+  cursor: pointer; /* Indicate interactivity */
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative; /* Needed for z-index to be above line */
+  z-index: 1; /* Ensure steps are above the line */
 }
 
-.circle {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: #555; 
-  border: 2px solid #555;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+/* Styling for the icon wrapper */
+.iconWrapper {
+  font-size: 1.8rem; /* Size of the icon */
+  margin-bottom: 5px; /* Space between icon and text */
+  color: #888; /* Inactive icon color */
+  transition: color 0.3s ease;
 }
 
 .stepName {
   font-size: 0.85rem;
-  color: #b0b0b0; 
+  color: #b0b0b0; /* Inactive text color */
   transition: color 0.3s ease;
-  white-space: nowrap; 
+  white-space: nowrap; /* Prevent names from wrapping */
   overflow: hidden;
-  text-overflow: ellipsis; 
-  padding: 0 5px; 
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
+  font-weight: bold; /* Make step names bold */
 }
 
-.step.active .circle {
-  background-color: #007bff; 
-  border-color: #007bff;
+/* Active step styling */
+.step.active .iconWrapper {
+  color: #007bff; /* Active icon color */
 }
 
 .step.active .stepName {
-  color: #f0f0f0; 
-  font-weight: bold;
+  color: #f0f0f0; /* Active text color */
 }
 
+/* Optional: Add a distinct "active background/border" if desired */
+.step.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Position below the step */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; /* Initially no width */
+  height: 0; /* Initially no height */
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #007bff; /* A small triangle pointer */
+  transition: width 0.3s ease; /* Animate pointer appearance */
+}
+
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .progressBar {
-    padding: 0 10px;
-    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow steps to wrap to next line if space is tight */
+    padding: 0 5px;
+    margin-bottom: 30px;
+    min-height: auto; /* Allow height to adjust */
   }
 
   .step {
-    min-width: unset; /* Allow steps to shrink more */
+    min-width: 70px;
+    padding: 8px 3px;
+  }
+
+  .iconWrapper {
+    font-size: 1.5rem; /* Slightly smaller icons on mobile */
   }
 
   .stepName {
-    font-size: 0.75rem; /* Smaller font on mobile */
+    font-size: 0.7rem; /* Smaller font on mobile */
+  }
+
+  /* Adjust line positioning for wrapped steps if necessary, or simplify it */
+  .connectorLine {
+    /* Might need to be less prominent or even removed on very small, wrapped layouts */
+    display: none; /* Hide line if steps wrap too much */
+  }
+
+  .step.active::after {
+    bottom: -5px; /* Adjust pointer position for mobile */
+    border-bottom-width: 6px;
+    border-left-width: 6px;
+    border-right-width: 6px;
   }
 }
