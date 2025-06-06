@@ -1,4 +1,3 @@
-// src/components/ProgressBar/ProgressBar.js
 import React from 'react';
 import styles from './ProgressBar.module.css';
 
@@ -14,7 +13,6 @@ const ProgressBar = ({ currentStep }) => {
 
   return (
     <nav className={styles.progressBar}>
-      {/* The line connecting the steps */}
       <div className={styles.line}></div>
       {steps.map((step) => (
         <div
