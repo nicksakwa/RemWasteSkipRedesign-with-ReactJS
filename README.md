@@ -14,7 +14,7 @@ In the project directory, you can run:
 1.  **Node:** Which you can download from the [official Nodejs website](https://nodejs.org/en/download).
 2.  **React:** Install the library using node npx in your bash terminal or your directory:
 
-```bash
+    ```bash
     npx create-react-app app_name
     ```
 ## How to run this example
