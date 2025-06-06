@@ -13,9 +13,13 @@ Before diving into the repository you have to install the following environments
 In the project directory, you can run:
 1.  **Node:** Which you can download from the [official Nodejs website](https://nodejs.org/en/download).
 2.  **React:** Install the library using node npx in your bash terminal or your directory:
+3.  **React icons:** Install the library using node npm install your bash terminal or your directory:
 
     ```bash
     npx create-react-app app_name
+    ```
+    ```bash
+    npm install react-icons
     ```
 ## How to run this example
 
