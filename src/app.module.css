@@ -30,14 +30,93 @@
   justify-content: center; 
   align-items: flex-start; 
   padding: 20px 0; 
+  padding-bottom: 100px; 
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0;
+  display: block; 
   border-top: 1px solid #333;
-  margin-top: 40px;
+  margin-top: 40px; 
+  background-color: #1a1a1a; 
+  width: 100%;
+  box-sizing: border-box; 
+  transition: all 0.3s ease-in-out; 
+  padding: 20px; 
+}
+
+.footerFixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  margin-top: 0; 
+  border-top: 1px solid #444; 
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.4); 
+  padding: 15px 30px; 
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  flex-wrap: wrap; 
+  gap: 15px 30px; 
+}
+
+.selectedSkipInfo {
+  display: flex;
+  align-items: center; 
+  gap: 20px; 
+}
+
+.skipDetails { 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 2px; 
+}
+
+.selectedSkipSize {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.selectedSkipHirePeriod {
+  font-size: 0.9rem;
+  color: #b0b0b0; 
+}
+
+.selectedSkipPrice {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ff8c; 
+}
+
+.placeholderInfo {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  flex-grow: 1; 
+  text-align: left; 
+}
+
+.disclaimerText {
+  font-size: 0.75rem; 
+  color: #888; 
+  text-align: center;
+  flex-grow: 1; 
+  max-width: 400px; 
+  order: 2; 
+}
+
+.footerActions {
+  display: flex;
+  gap: 15px; 
+  order: 3; 
 }
 
 .backButton,
@@ -110,4 +189,58 @@
   color: #b0b0b0;
   text-align: center;
   margin: 50px;
+}
+
+@media (max-width: 800px) {
+  .footerContent {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .selectedSkipInfo, .footerActions, .placeholderInfo {
+    width: 100%; 
+    justify-content: center; 
+    text-align: center; 
+  }
+
+  .selectedSkipInfo {
+    flex-direction: row; 
+    gap: 15px; 
+  }
+
+  .skipDetails {
+    flex-direction: column; 
+    gap: 5px;
+    align-items: center; 
+  }
+
+  .selectedSkipSize {
+    font-size: 1.3rem; 
+  }
+
+  .selectedSkipHirePeriod {
+    font-size: 0.8rem;
+  }
+
+  .selectedSkipPrice {
+    font-size: 1.6rem;
+  }
+
+  .disclaimerText {
+    order: 3; 
+    margin: 10px 0; 
+  }
+}
+
+@media (max-width: 600px) {
+    .mainContent {
+      padding-bottom: 180px; 
+    }
+    .footerFixed {
+      padding: 10px 15px; 
+    }
+    .disclaimerText {
+      font-size: 0.7rem; 
+      max-width: 90%;
+    }
 }
