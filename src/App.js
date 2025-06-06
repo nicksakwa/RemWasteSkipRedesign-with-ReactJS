@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './App.module.css'; 
+import styles from './app.module.css'; 
 import SkipGrid from './components/SkipGrid/SkipGrid'; 
 import ProgressBar from './components/ProgressBar/ProgressBar'; 
 function App() {
