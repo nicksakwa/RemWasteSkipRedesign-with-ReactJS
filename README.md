@@ -1,8 +1,8 @@
 # Hi there! 👋
 
-This GitHub repository provides a redesign of the REMWaste Skip Redesign with ReactJS Javascript library
+This GitHub repository provides a redesign of the Waste Management web app design with ReactJS Javascript library
 
-# REMWaste Skip Redesign with ReactJS 
+# Waste Management design with ReactJS 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
